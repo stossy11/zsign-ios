@@ -22,6 +22,10 @@ let package = Package(
             dependencies: [
                 .product(name: "OpenSSL", package: "OpenSSL-Package")
             ]
+            publicHeadersPath: "./Includes",
+            cxxSettings: [
+                .headerSearchPath("."),
+            ],
         )
     ],
     cxxLanguageStandard: .cxx14
