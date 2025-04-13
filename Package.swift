@@ -21,11 +21,11 @@ let package = Package(
             name: "ZSign",
             dependencies: [
                 .product(name: "OpenSSL", package: "OpenSSL-Package")
-            ]
+            ],
             publicHeadersPath: "./Includes",
             cxxSettings: [
                 .headerSearchPath("."),
-            ],
+            ]
         )
     ],
     cxxLanguageStandard: .cxx14
