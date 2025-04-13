@@ -13,22 +13,16 @@ let package = Package(
             name: "ZSignApple",
             targets: ["ZSign"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/krzyzanowskim/OpenSSL-Package.git", from: "3.3.1000")
+    ],
     targets: [
         .target(
             name: "ZSign",
-            dependencies: ["OpenSSL"],
-            publicHeadersPath: "./Includes",
-            cxxSettings: [
-                .headerSearchPath("."),
-            ],
-            linkerSettings: [
-                .linkedFramework("OpenSSL"),
+            dependencies: [
+                .product(name: "OpenSSL", package: "OpenSSL-Package")
             ]
-        ),
-        .binaryTarget(
-            name: "OpenSSL",
-            path: "Binaries/OpenSSL.xcframework"
-        ),
+        )
     ],
     cxxLanguageStandard: .cxx14
 )
